@@ -76,9 +76,9 @@
 		<aside id="abrir-modal" class="janela-modal">
 			<div>
 				<a href="#fechar" title="Fechar" class="fechar">X</a>
-				<form class="form-login" name="form-entrar">
-					USUÁRIO: <input type="text" name="campo-usuario">
-					SENHA: <input type="password" name="campo-senha"><br />
+				<form class="form-login" name="form-entrar" action="" method="post">
+					USUÁRIO: <input type="text" name="campo-usuario" required>
+					SENHA: <input type="password" name="campo-senha" required><br />
 
 					<input type="submit" name="submit-enviar" value="ENTRAR">
 				</form>
