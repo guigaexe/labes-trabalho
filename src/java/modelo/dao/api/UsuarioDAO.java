@@ -5,7 +5,7 @@ import modelo.Usuario;
 
 public interface UsuarioDAO {
     
-    public Usuario inserir(Usuario usuario);
+    public int inserir(Usuario usuario);
     public Usuario encontrarApelido(String apelido);
     public List<Usuario> encontrarTodos();
 }
