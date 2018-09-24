@@ -1,7 +1,7 @@
 package modelo.dao.api;
 
 import java.util.List;
-import modelo.servico.Comentario;
+import modelo.Comentario;
 
 public interface ComentarioDAO {
     

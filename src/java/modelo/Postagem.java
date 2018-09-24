@@ -2,15 +2,16 @@ package modelo;
 
 import java.time.LocalDate;
 import java.util.List;
-import modelo.servico.Comentario;
 
 public class Postagem extends Identificador{
     private Long id;
-    private String titulo;
     private String autor;
+    private String titulo;
     private LocalDate data;
     private String conteudo;
     private List<Comentario> comentarios;
+    
+    public Postagem(){};
 
     public Postagem(Long id, String titulo, String autor, LocalDate data, String conteudo, List<Comentario> comentarios) {
         this.id = id;

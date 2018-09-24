@@ -18,7 +18,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
     //Acochambração iminente.
     public static void main(String[] args) {
         System.out.println("Foi pro main.");
-        Usuario u = new Usuario(Long.valueOf(3), "Geovane", "Crota", "Geovane@fatec.sp.gov.br", "123");
+        Usuario u = new Usuario(Long.valueOf(5), "Zero", "Zero", "Zero@fatec.sp.gov.br", "123");
         System.out.println("Criou objeto de usuário.");
         UsuarioDAO udao = new UsuarioDAOMariaDB10();
         System.out.println("Criou objeto de usuariodao.");

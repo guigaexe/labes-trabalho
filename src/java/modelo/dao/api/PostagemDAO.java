@@ -6,6 +6,6 @@ import modelo.Postagem;
 public interface PostagemDAO {
     
     public Postagem inserir(Postagem postagem);
-    public Postagem encontrarIdentificador(Long id);
-    public List<Postagem> encontrarTodos();
+    public Postagem encontrarPorIdentificador(Long id);
+    public List<Postagem> encontrarCincoPostagens();
 }

@@ -1,4 +1,4 @@
-package modelo.servico;
+package modelo;
 
 import java.time.LocalDate;
 import modelo.Identificador;
