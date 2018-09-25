@@ -17,9 +17,15 @@
 	</head>
 
 	<body>
+            
+            <%
+                String autenticado = (String) request.getAttribute("autenticado");
+            %>
 
 		<header>
-			<h1>Julia Roberts</h1>
+                    <h1><%
+                            out.print(autenticado);
+                        %></h1>
 			<h2>Um blog sobre a Julia Roberts.</h2>
 		</header>
 		<nav>
@@ -76,7 +82,7 @@
 		<aside id="abrir-modal" class="janela-modal">
 			<div>
 				<a href="#fechar" title="Fechar" class="fechar">X</a>
-				<form class="form-login" name="form-entrar" action="" method="post">
+				<form class="form-login" name="form-entrar" action="Autenticador" method="post">
 					USUÁRIO: <input type="text" name="campo-usuario" required>
 					SENHA: <input type="password" name="campo-senha" required><br />
 
