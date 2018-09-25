@@ -5,8 +5,8 @@
         <group>
             <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/dao/implementacao/UsuarioDAOMariaDB10.java</file>
             <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/dao/api/Fabrica.java</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/dao/api/UsuarioDAO.java</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/Usuario.java</file>
+            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/Postagem.java</file>
+            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/dao/implementacao/PostagemDAOMariaDB10.java</file>
         </group>
     </open-files>
 </project-private>

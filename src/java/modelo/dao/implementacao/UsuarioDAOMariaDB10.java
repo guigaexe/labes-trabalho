@@ -3,7 +3,9 @@ package modelo.dao.implementacao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
+import modelo.Privilegios;
 import modelo.Usuario;
 import modelo.dao.api.Fabrica;
 import modelo.dao.api.UsuarioDAO;
@@ -18,15 +20,23 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
     //Acochambração iminente.
     public static void main(String[] args) {
         System.out.println("Foi pro main.");
-        Usuario u = new Usuario(Long.valueOf(5), "Zero", "Zero", "Zero@fatec.sp.gov.br", "123");
-        System.out.println("Criou objeto de usuário.");
+        Usuario usuario = null;
+        System.out.println("Criou objeto vazio de um usuário.");
         UsuarioDAO udao = new UsuarioDAOMariaDB10();
-        System.out.println("Criou objeto de usuariodao.");
+        System.out.println("Criou objeto de postagemdao.");
         
-        int resultado;
+        usuario = udao.encontrarPorApelido("Crota");
+        System.out.println("Tentou popular o objeto postagem. \n");
         
-        resultado = udao.inserir(u);
-        System.out.println("Tentou inserir. Resultado: " + resultado);
+        //System.out.println(postagem);
+        
+        System.out.println("Dados do usuário: \n"
+                + "Identificador do post: " + usuario.getId() + "\n" +
+                "Nome do usuário: " + usuario.getNome() + "\n" +
+                "Apelido do usuário: " + usuario.getApelido() + "\n" +
+                "Email do usuário: " + usuario.getEmail() + "\n" +
+                "Senha do usuário: " + usuario.getSenha() + "\n" +
+                "Privilégio do usuário: " + usuario.getPrivilegio());        
     }
 
     @Override
@@ -52,8 +62,31 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
     }
 
     @Override
-    public Usuario encontrarApelido(String apelido) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Usuario encontrarPorApelido(String apelido) {
+        Usuario usuario = null;
+        
+        try{
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM usuario WHERE apelido_usuario = ?");
+            comandoSQL.setString(1, apelido);
+            
+            ResultSet resultado = comandoSQL.executeQuery();
+            resultado.next();
+            
+            usuario = new Usuario();
+            usuario.setId(resultado.getLong(1));
+            usuario.setNome(resultado.getString(2));
+            usuario.setApelido(resultado.getString(3));
+            usuario.setEmail(resultado.getString(4));
+            usuario.setSenha(resultado.getString(5));
+            usuario.setPrivilegio(Privilegios.values()[resultado.getInt(6)].toString());
+            
+            comandoSQL.close();
+            resultado.close();
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return usuario;
     }
 
     @Override

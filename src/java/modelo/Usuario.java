@@ -6,13 +6,17 @@ public class Usuario extends Identificador{
     private String apelido;
     private String email;
     private String senha; //trocar para um jeito mais seguro depois.
+    private String privilegio;
 
-    public Usuario(Long id, String nome, String apelido, String email, String senha) {
+    public Usuario(){}
+
+    public Usuario(Long id, String nome, String apelido, String email, String senha, String privilegio) {
         this.id = id;
         this.nome = nome;
         this.apelido = apelido;
         this.email = email;
         this.senha = senha;
+        this.privilegio = privilegio;
     }
 
     public Long getId() {
@@ -54,5 +58,13 @@ public class Usuario extends Identificador{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
+    public String getPrivilegio() {
+        return privilegio;
+    }
+
+    public void setPrivilegio(String privilegio) {
+        this.privilegio = privilegio;
+    }
+        
 }
