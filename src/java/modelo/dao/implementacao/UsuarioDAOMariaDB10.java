@@ -17,28 +17,6 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
         conexao = Fabrica.obterConexao();
     }
     
-    //Acochambração iminente.
-    public static void main(String[] args) {
-        System.out.println("Foi pro main.");
-        Usuario usuario = null;
-        System.out.println("Criou objeto vazio de um usuário.");
-        UsuarioDAO udao = new UsuarioDAOMariaDB10();
-        System.out.println("Criou objeto de postagemdao.");
-        
-        usuario = udao.encontrarPorApelido("Crota");
-        System.out.println("Tentou popular o objeto postagem. \n");
-        
-        //System.out.println(postagem);
-        
-        System.out.println("Dados do usuário: \n"
-                + "Identificador do post: " + usuario.getId() + "\n" +
-                "Nome do usuário: " + usuario.getNome() + "\n" +
-                "Apelido do usuário: " + usuario.getApelido() + "\n" +
-                "Email do usuário: " + usuario.getEmail() + "\n" +
-                "Senha do usuário: " + usuario.getSenha() + "\n" +
-                "Privilégio do usuário: " + usuario.getPrivilegio());        
-    }
-
     @Override
     public int inserir(Usuario usuario) {
         int resultado = 0;
