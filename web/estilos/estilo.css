@@ -56,6 +56,7 @@ nav{
 	/*margin-top: 10px;
 	margin-bottom: 10px; media queries*/
 	border-radius: 15px;
+	text-transform: uppercase;
 }
 
 .ul-nav li{
@@ -83,7 +84,29 @@ nav{
 	padding: 25px;
 }
 
-.article-post{
+.section-painel{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.section-acao{
+	width: 40%;
+	font-family: 'Oswald', sans-serif;
+	background-color: #4293C1;
+	padding: 25px;
+	margin: 10px;
+	border-radius: 15px;
+}
+
+.section-acao:hover{
+	color: #F4D56C;
+	cursor: pointer;
+}
+
+.article-post, .section-painel{
 	background-color: #AAC6F5;
 	padding: 25px;
 	margin-bottom: 25px;
