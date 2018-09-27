@@ -1,4 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,18 +22,8 @@
 	</head>
 
 	<body>
-		<header>
-        	<h1>Julia Roberts</h1>
-            <h2>Um blog sobre a Julia Roberts.</h2>
-		</header>
-		<nav>
-			<ul class="ul-nav">
-				<li><a href="index.html">HOME</a></li>
-				<li>SOBRE</li>
-				<li><a href="#abrir-modal">ENTRAR</a></li>
-			</ul>
-		</nav>
-
+                <%@include file= "cabecalho.jsp" %>
+                <%@include file= "menu.jsp" %> 
 		<section class="section-corpo">
 			<article class="article-post">
 				<h1 class="h1-titulo">Julia Roberts incentiva a felicidade em campanha da Lancôme</h1>

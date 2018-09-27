@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Usuario;
 import modelo.servico.api.ServicoUsuario;
 import modelo.servico.implementacao.ServicoUsuarioImplementacao;
@@ -30,7 +31,8 @@ public class Autenticador extends HttpServlet{
             
             if(usuario.equals(usuarioBD.getApelido()) && senha.equals(usuarioBD.getSenha())){
                 try{
-                    requisicao.setAttribute("usuarioLogado", usuarioBD);
+                    HttpSession sessao = requisicao.getSession();
+                    sessao.setAttribute("usuarioLogado", usuarioBD);
                     contextoservlet.getRequestDispatcher("/painelcontrole.jsp").forward(requisicao, resposta);
                 }
                 catch(Exception excecao){
@@ -39,8 +41,7 @@ public class Autenticador extends HttpServlet{
             }
             else{
                 try{
-                requisicao.setAttribute("autenticado", "MUDOU");
-                contextoservlet.getRequestDispatcher("/index.jsp").forward(requisicao, resposta);                   
+                    System.out.println("Algo deu errado.");
                 }
                 catch(Exception excecao){
                     System.out.println(excecao);

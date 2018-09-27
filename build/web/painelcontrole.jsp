@@ -1,5 +1,10 @@
 <%@page import="modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+%>
+
 <html>
 
 	<head>
@@ -13,34 +18,19 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 		<title>Julia Roberts | Painel de controle</title>
-
 	</head>
 
-	<body>
-            <%
-                Usuario usuario = (Usuario) request.getAttribute("usuarioLogado");
-            %>
-            
-		<header>
-        	<h1>Julia Roberts</h1>
-            <h2>Um blog sobre a Julia Roberts.</h2>
-		</header>
-		<nav>
-			<ul class="ul-nav">
-				<li><a href="index.jsp">HOME</a></li>
-				<li>SOBRE</li>
-				<li><% out.print(usuario.getApelido()); %></li>
-			</ul>
-		</nav>
-
+	<body>           
+                <%@include file= "cabecalho.jsp" %>
+                <%@include file= "menu.jsp" %>
 		<section class="section-corpo">
 			<section class="section-painel">
-                            <h1>Bem vindo, <% out.print(usuario.getApelido()); %>!</h1>
+                            <h1>Bem vindo, <%= usuario.getApelido() %>!</h1>
 				<section class="section-acao">
 					NOVA POSTAGEM
 				</section>
                                 
-                                <%
+                                <% 
                                     if(usuario.getPrivilegio().equals("ADMINISTRADOR")){
                                 %>
                                 
@@ -56,7 +46,9 @@
                                 %>
                                 
 				<section class="section-acao">
-					SAIR DA CONTA
+                                    <form action="logout" method="post">
+                                        <input class="input-logout" type="submit" value="SAIR DA CONTA">
+                                    </form>
 				</section>
 			</article>
 		</section>

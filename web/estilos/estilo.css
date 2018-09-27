@@ -106,6 +106,10 @@ nav{
 	cursor: pointer;
 }
 
+.input-logout{
+	all: unset;
+}
+
 .article-post, .section-painel{
 	background-color: #AAC6F5;
 	padding: 25px;
