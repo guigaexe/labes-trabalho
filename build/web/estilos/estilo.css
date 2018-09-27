@@ -136,6 +136,10 @@ nav{
 	text-transform: uppercase;
 }
 
+.article-post > p{
+	padding: 5px;
+}
+
 footer{
 	background-color: #AAC6F5;
 	font-family: 'Oswald', sans-serif;
