@@ -101,7 +101,7 @@ nav{
 	border-radius: 15px;
 }
 
-.section-acao:hover{
+.section-acao:hover, .submit-postar:hover{
 	color: #F4D56C;
 	cursor: pointer;
 }
@@ -138,6 +138,40 @@ nav{
 
 .article-post > p{
 	padding: 5px;
+}
+
+.form-postagem{
+	font-family: 'Oswald', sans-serif;
+	background-color: #AAC6F5;
+	display: flex;
+	flex-direction: column;
+	border-radius: 15px;
+	padding: 25px;
+}
+
+.input-titulo{
+	border-radius: 15px;
+}
+
+.input-postagem{
+	width: 100%;
+	height: 25rem;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	border-radius: 15px;
+	margin-bottom: 25px;
+	resize: none;
+}
+
+.submit-postar{
+	border: none;
+	width: 40%;
+	font-family: 'Oswald', sans-serif;
+	background-color: #4293C1;
+	align-self: center;
+	padding: 25px;
+	margin: 10px;
+	border-radius: 15px;
 }
 
 footer{
