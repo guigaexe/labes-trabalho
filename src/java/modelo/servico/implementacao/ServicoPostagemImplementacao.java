@@ -24,8 +24,8 @@ public class ServicoPostagemImplementacao implements ServicoPostagem{
 
     @Override
     public List<Postagem> encontrarCincoPostagens() {
-        List<Postagem> listaPostagens = new ArrayList();
         PostagemDAO postagemdao = new PostagemDAOMariaDB10();
+        List<Postagem> listaPostagens = postagemdao.encontrarCincoPostagens();
         
         return listaPostagens;
     }     

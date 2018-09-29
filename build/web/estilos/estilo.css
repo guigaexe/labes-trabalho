@@ -96,13 +96,19 @@ nav{
 	width: 40%;
 	font-family: 'Oswald', sans-serif;
 	background-color: #4293C1;
+        text-decoration: none;
 	padding: 25px;
 	margin: 10px;
 	border-radius: 15px;
 }
 
+.section-acao > a{
+    all: unset;
+}
+
 .section-acao:hover, .submit-postar:hover{
 	color: #F4D56C;
+        text-decoration: none;
 	cursor: pointer;
 }
 

@@ -4,8 +4,7 @@
 
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-    //List<Postagem> listaPostagens = (List<Postagem>) request.getAttribute("listaPostagens");
-    String teste = (String) request.getAttribute("listaPostagens");
+    List<Postagem> listaPostagens = (List<Postagem>) request.getAttribute("listaPostagens");
 %>
 
 <!DOCTYPE html>
@@ -29,13 +28,15 @@
                 <%@include file= "cabecalho.jsp" %>
                 <%@include file= "menu.jsp" %> 
 		<section class="section-corpo">
+                    <%for(Postagem postagem : listaPostagens){ %>
 			<article class="article-post">
-                            <h1 class="h1-titulo">a</h1>
-				<h2 class="h2-detalhes">b</h2>
+                            <h1 class="h1-titulo"><%= postagem.getTitulo() %></h1>
+				<h2 class="h2-detalhes"><%= postagem.getAutor() %></h2>
 				<p>
-                                    c
+                                    <%= postagem.getConteudo() %>
 				</p>
 			</article>
+                    <% } %>
 		</section>
 	
 		<footer>

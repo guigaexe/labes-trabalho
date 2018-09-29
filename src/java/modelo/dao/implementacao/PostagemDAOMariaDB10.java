@@ -41,24 +41,6 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
         return resultado;
     }
     
-    //Acochambração iminente.
-    public static void main(String[] args) {
-        List<Postagem> postagem = new ArrayList();
-        PostagemDAO pdao = new PostagemDAOMariaDB10();
-        System.out.println("Criou objeto de postagemdao.");
-        
-        postagem = pdao.encontrarCincoPostagens();
-        System.out.println("Populou o objeto postagem. \n");
-        
-        for(Postagem p: postagem){
-            System.out.println(p.getTitulo());
-            System.out.println(p.getAutor());
-            System.out.println(p.getData());
-            System.out.println(p.getConteudo());
-            System.out.println("\n");
-        }
-    }
-
     @Override
     public Postagem encontrarPorIdentificador(Long id) {
         Postagem postagem = null;
