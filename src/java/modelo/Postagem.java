@@ -1,19 +1,19 @@
 package modelo;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
 
 public class Postagem extends Identificador{
     private Long id;
     private String autor;
     private String titulo;
-    private LocalDate data;
+    private Date data;
     private String conteudo;
     private List<Comentario> comentarios;
     
     public Postagem(){};
 
-    public Postagem(Long id, String titulo, String autor, LocalDate data, String conteudo, List<Comentario> comentarios) {
+    public Postagem(Long id, String titulo, String autor, Date data, String conteudo, List<Comentario> comentarios) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -62,11 +62,11 @@ public class Postagem extends Identificador{
         this.conteudo = conteudo;
     }
 
-    public LocalDate getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     }
     

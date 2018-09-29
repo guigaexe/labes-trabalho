@@ -22,7 +22,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
         int resultado = 0;
         try{
             PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUES(?, ?, ?, ?, ?)");
-            comandoSQL.setString(1, usuario.getId().toString());
+            comandoSQL.setString(1, "id_usuario");
             comandoSQL.setString(2, usuario.getNome());
             comandoSQL.setString(3, usuario.getApelido());
             comandoSQL.setString(4, usuario.getEmail());

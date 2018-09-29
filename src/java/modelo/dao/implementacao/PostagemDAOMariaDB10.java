@@ -17,8 +17,27 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
     }
 
     @Override
-    public Postagem inserir(Postagem postagem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int inserir(Postagem postagem) {
+        int resultado = 0;
+        try{
+            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO postagem"
+                    + "(fk_postagem_usuario_apelido, titulo_postagem, data_postagem, conteudo_postagem)"
+                    + " VALUES(?, ?, ?, ?)");
+            //comandoSQL.setString(1, "id_postagem");
+            comandoSQL.setString(1, postagem.getAutor());
+            comandoSQL.setString(2, postagem.getTitulo());
+            comandoSQL.setDate(3, postagem.getData());
+            comandoSQL.setString(4, postagem.getConteudo());
+            
+            resultado = comandoSQL.executeUpdate();
+            comandoSQL.close();
+            
+            return resultado;
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return resultado;
     }
     
     //Acochambração iminente.
@@ -63,7 +82,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
             postagem.setId(resultado.getLong(2));
             postagem.setAutor(resultado.getString(1));
             postagem.setTitulo(resultado.getString(3));
-            postagem.setData(resultado.getDate(4).toLocalDate());
+            postagem.setData(resultado.getDate(4));
             postagem.setConteudo(resultado.getString(5));
             
             comandoSQL.close();

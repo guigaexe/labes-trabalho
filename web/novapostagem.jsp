@@ -25,7 +25,7 @@
                 <%@include file= "cabecalho.jsp" %>
                 <%@include file= "menu.jsp" %> 
 		<section class="section-corpo">
-			<form class="form-postagem" action="" method="post">
+			<form class="form-postagem" action="arauto" method="post" accept-charset="UTF-8">
 				TÍTULO DA POSTAGEM
 				<input type="text" class="input-titulo" name="campo-titulo" required>
 				CORPO DA POSTAGEM

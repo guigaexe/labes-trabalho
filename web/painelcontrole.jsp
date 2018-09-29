@@ -27,7 +27,7 @@
 			<section class="section-painel">
                             <h1>Bem vindo, <%= usuario.getApelido() %>!</h1>
 				<section class="section-acao">
-					NOVA POSTAGEM
+                                    <a href="novapostagem.jsp">NOVA POSTAGEM</a>
 				</section>
                                 
                                 <% 
