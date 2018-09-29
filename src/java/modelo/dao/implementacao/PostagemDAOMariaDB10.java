@@ -3,6 +3,7 @@ package modelo.dao.implementacao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import modelo.Postagem;
@@ -26,7 +27,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
             //comandoSQL.setString(1, "id_postagem");
             comandoSQL.setString(1, postagem.getAutor());
             comandoSQL.setString(2, postagem.getTitulo());
-            comandoSQL.setDate(3, postagem.getData());
+            comandoSQL.setTimestamp(3, postagem.getData());
             comandoSQL.setString(4, postagem.getConteudo());
             
             resultado = comandoSQL.executeUpdate();
@@ -42,24 +43,20 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
     
     //Acochambração iminente.
     public static void main(String[] args) {
-        System.out.println("Foi pro main.");
-        Postagem postagem = null;
-        System.out.println("Criou objeto vazio de uma postagem.");
+        List<Postagem> postagem = new ArrayList();
         PostagemDAO pdao = new PostagemDAOMariaDB10();
         System.out.println("Criou objeto de postagemdao.");
         
-        postagem = pdao.encontrarPorIdentificador(Long.valueOf(1));
+        postagem = pdao.encontrarCincoPostagens();
         System.out.println("Populou o objeto postagem. \n");
         
-        //System.out.println(postagem);
-        
-        System.out.println("Dados da postagem: \n"
-                + "Identificador do post: " + postagem.getId() + "\n" +
-                "Autor do post:" + postagem.getAutor() + "\n" +
-                "Título do post: " + postagem.getTitulo() + "\n" +
-                "Data do post: " + postagem.getData() + "\n" +
-                "Conteúdo do post: " + postagem.getConteudo());
-        
+        for(Postagem p: postagem){
+            System.out.println(p.getTitulo());
+            System.out.println(p.getAutor());
+            System.out.println(p.getData());
+            System.out.println(p.getConteudo());
+            System.out.println("\n");
+        }
     }
 
     @Override
@@ -82,7 +79,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
             postagem.setId(resultado.getLong(2));
             postagem.setAutor(resultado.getString(1));
             postagem.setTitulo(resultado.getString(3));
-            postagem.setData(resultado.getDate(4));
+            postagem.setData(resultado.getTimestamp(4));
             postagem.setConteudo(resultado.getString(5));
             
             comandoSQL.close();
@@ -96,7 +93,31 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
 
     @Override
     public List<Postagem> encontrarCincoPostagens() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Postagem> listaPosts = new ArrayList();
+        Postagem postagem = null;
+        try{
+            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM postagem ORDER BY data_postagem DESC LIMIT 5");
+            
+            ResultSet resultado = comandoSQL.executeQuery();
+            while(resultado.next()){
+                postagem = new Postagem();
+                
+                postagem.setId(resultado.getLong(1));
+                postagem.setAutor(resultado.getString(2));
+                postagem.setTitulo(resultado.getString(3));
+                postagem.setData(resultado.getTimestamp(4));
+                postagem.setConteudo(resultado.getString(5));               
+                
+                listaPosts.add(postagem);
+            }
+            
+            comandoSQL.close();
+            resultado.close();  
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return listaPosts;
     }
 
 }

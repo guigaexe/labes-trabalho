@@ -1,28 +1,29 @@
-DROP DATABASE bdlabes;
+/*DROP DATABASE bdlabes;*/
 CREATE DATABASE IF NOT EXISTS bdlabes;
 USE bdlabes;
 
 CREATE TABLE usuario(
-	id_usuario INT UNSIGNED NOT NULL,
+	id_usuario INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome_usuario VARCHAR(255) NOT NULL,
-    apelido_usuario VARCHAR(255) NOT NULL,
+    apelido_usuario VARCHAR(255) UNIQUE NOT NULL,
     email_usuario VARCHAR(255),
     senha_usuario VARCHAR(255) NOT NULL,
+    privilegio_usuario INT NOT NULL,
     PRIMARY KEY(id_usuario)
 );
 
 CREATE TABLE postagem(
-	id_postagem INT UNSIGNED NOT NULL,
-    fk_postagem_usuario_id INT UNSIGNED NOT NULL,
+	id_postagem INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    fk_postagem_usuario_apelido VARCHAR(255) NOT NULL,
     titulo_postagem VARCHAR(255) NOT NULL,
-    data_postagem DATE NOT NULL,
+    data_postagem DATETIME NOT NULL,
     conteudo_postagem TEXT NOT NULL,
     PRIMARY KEY(id_postagem),
-    FOREIGN KEY(fk_postagem_usuario_id) REFERENCES usuario(id_usuario)
+    FOREIGN KEY(fk_postagem_usuario_apelido) REFERENCES usuario(apelido_usuario)
 );
 
 CREATE TABLE comentario(
-	id_comentario INT UNSIGNED NOT NULL,
+	id_comentario INT UNSIGNED NOT NULL AUTO_INCREMENT,
     fk_comentario_postagem_id INT UNSIGNED NOT NULL,
     fk_comentario_usuario_id INT UNSIGNED NOT NULL,
     data_comentario DATE NOT NULL,
@@ -31,16 +32,17 @@ CREATE TABLE comentario(
     FOREIGN KEY(fk_comentario_postagem_id) REFERENCES postagem(id_postagem),
     FOREIGN KEY(fk_comentario_usuario_id) REFERENCES usuario(id_usuario)
 );
-
-INSERT INTO usuario VALUES(1, "Guilherme Eric", "Guiga", "Guilherme@uol.com.br", "123");
-INSERT INTO usuario VALUES(2, "Geovane Santos", "Crota", "Geovane@bol.com.br", "123");
-INSERT INTO usuario VALUES(3, "Leonardo Costa", "GrandeLepe", "Leonardo@outlook.com", "123");
-INSERT INTO postagem VALUES(1, 1, "Testes no banco de dados: Como fazer?", "2018-09-10", "Lorem ipsum.");
+SELECT data_postagem FROM postagem;
+SELECT * FROM postagem ORDER BY data_postagem DESC;
+INSERT INTO usuario VALUES(id_usuario, "Guilherme Eric", "Guiga", "Guilherme@uol.com.br", "123", 0);/*
+INSERT INTO usuario VALUES(2, "Geovane Santos", "Crota", "Geovane@bol.com.br", "123", 1);
+INSERT INTO usuario VALUES(3, "Leonardo Costa", "GrandeLepe", "Leonardo@outlook.com", "123", 1);
+INSERT INTO postagem VALUES(id_postagem, "Guiga", "Testes no banco de dados: Como fazer?", "2008-11-11", "Lorem ipsum.");/*
 INSERT INTO postagem VALUES(2, 1, "Chaves estrangeiras: uma dor de cabeça", "2018-09-11", "Lorem ipsum.");
 INSERT INTO comentario VALUES(1, 1, 2, "2018-09-10", "Massa!");
 INSERT INTO comentario VALUES(2, 2, 2, "2018-09-11", "Tá errado isso aí.");
-INSERT INTO comentario VALUES(3, 2, 3, "2018-09-11", "É osso.");
-
+INSERT INTO comentario VALUES(3, 2, 3, "2018-09-11", "É osso.");*/
+/*
 SELECT * FROM usuario;
 SELECT * FROM postagem;
 SELECT * FROM comentario;
@@ -67,3 +69,5 @@ JOIN comentario c
 ON c.fk_comentario_postagem_id = p.id_postagem
 JOIN usuario u1
 ON u1.id_usuario = c.fk_comentario_usuario_id;
+
+ SHOW VARIABLES LIKE 'log_error';*/

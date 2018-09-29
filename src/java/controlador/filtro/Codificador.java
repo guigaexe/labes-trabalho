@@ -1,4 +1,4 @@
-package controlador;
+package controlador.filtro;
 
 import java.io.IOException;
 import javax.servlet.Filter;

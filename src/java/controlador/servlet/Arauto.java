@@ -1,7 +1,8 @@
 package controlador.servlet;
 
 import java.sql.Date;
-import javax.servlet.ServletContext;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +25,7 @@ public class Arauto extends HttpServlet{
         
         String autor = usuario.getApelido();
         String titulo = requisicao.getParameter("campo-titulo");
-        Date data = new Date(System.currentTimeMillis());
+        Timestamp data = new Timestamp(System.currentTimeMillis());
         String conteudo = requisicao.getParameter("campo-postagem");
         
         postagem.setAutor(autor);

@@ -1,5 +1,6 @@
 package modelo.servico.implementacao;
 
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Postagem;
 import modelo.dao.api.PostagemDAO;
@@ -23,8 +24,9 @@ public class ServicoPostagemImplementacao implements ServicoPostagem{
 
     @Override
     public List<Postagem> encontrarCincoPostagens() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
+        List<Postagem> listaPostagens = new ArrayList();
+        PostagemDAO postagemdao = new PostagemDAOMariaDB10();
+        
+        return listaPostagens;
+    }     
 }
