@@ -1,7 +1,6 @@
 package modelo.dao.implementacao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
@@ -11,17 +10,17 @@ import modelo.dao.api.Fabrica;
 import modelo.dao.api.UsuarioDAO;
 
 public class UsuarioDAOMariaDB10 implements UsuarioDAO{
-    private Connection conexao;
+    private final Connection CONEXAO;
     
     public UsuarioDAOMariaDB10(){
-        conexao = Fabrica.obterConexao();
+        CONEXAO = Fabrica.obterConexao();
     }
     
     @Override
     public int inserir(Usuario usuario) {
         int resultado = 0;
         try{
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO usuario VALUES(?, ?, ?, ?, ?)");
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("INSERT INTO usuario VALUES(?, ?, ?, ?, ?)");
             comandoSQL.setString(1, "id_usuario");
             comandoSQL.setString(2, usuario.getNome());
             comandoSQL.setString(3, usuario.getApelido());
@@ -44,14 +43,14 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
         Usuario usuario = null;
         
         try{
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM usuario WHERE apelido_usuario = ?");
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("SELECT * FROM usuario WHERE apelido_usuario = ?");
             comandoSQL.setString(1, apelido);
             
             ResultSet resultado = comandoSQL.executeQuery();
             resultado.next();
             
             usuario = new Usuario();
-            usuario.setId(resultado.getLong(1));
+            usuario.setId(resultado.getInt(1));
             usuario.setNome(resultado.getString(2));
             usuario.setApelido(resultado.getString(3));
             usuario.setEmail(resultado.getString(4));

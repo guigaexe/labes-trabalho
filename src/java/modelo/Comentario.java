@@ -1,26 +1,32 @@
 package modelo;
 
-import java.time.LocalDate;
-import modelo.Identificador;
+import java.sql.Timestamp;
+import java.util.List;
 
-public class Comentario extends Identificador{
-    private Long id;
+public class Comentario{
+    private Integer id;
     private String autor;
-    private LocalDate data;
+    private Timestamp data;
     private String conteudo;
+    private List<Comentario> comentarios;
 
-    public Comentario(Long id, String autor, LocalDate data, String conteudo) {
+    public Comentario(Integer id, String autor, Timestamp data, String conteudo, List<Comentario> comentarios) {
         this.id = id;
         this.autor = autor;
         this.data = data;
         this.conteudo = conteudo;
+        this.comentarios = comentarios;
+    }
+
+    public Comentario() {
+        
     }
     
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -32,11 +38,11 @@ public class Comentario extends Identificador{
         this.autor = autor;
     }
 
-    public LocalDate getData() {
+    public Timestamp getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(Timestamp data) {
         this.data = data;
     }
 
@@ -46,6 +52,14 @@ public class Comentario extends Identificador{
 
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
     }
     
 }

@@ -1,7 +1,7 @@
 package modelo;
 
-public class Usuario extends Identificador{
-    private Long id;
+public class Usuario{
+    private Integer id;
     private String nome;
     private String apelido;
     private String email;
@@ -10,7 +10,7 @@ public class Usuario extends Identificador{
 
     public Usuario(){}
 
-    public Usuario(Long id, String nome, String apelido, String email, String senha, String privilegio) {
+    public Usuario(Integer id, String nome, String apelido, String email, String senha, String privilegio) {
         this.id = id;
         this.nome = nome;
         this.apelido = apelido;
@@ -19,11 +19,11 @@ public class Usuario extends Identificador{
         this.privilegio = privilegio;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     

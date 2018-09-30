@@ -18,8 +18,11 @@ public class ServicoPostagemImplementacao implements ServicoPostagem{
     }
 
     @Override
-    public Postagem encontrarPorIdentificador(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Postagem encontrarPorIdentificador(Integer id) {
+        PostagemDAO postagemdao = new PostagemDAOMariaDB10();
+        Postagem postagem = postagemdao.encontrarPorIdentificador(id);
+        
+        return postagem;
     }
 
     @Override

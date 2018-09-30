@@ -16,5 +16,4 @@ public class Codificador implements Filter{
         requisicao.setCharacterEncoding("UTF-8");
         corrente.doFilter(requisicao, resposta);
     }
-
 }

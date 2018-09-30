@@ -5,23 +5,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import modelo.Postagem;
 import modelo.dao.api.Fabrica;
 import modelo.dao.api.PostagemDAO;
 
 public class PostagemDAOMariaDB10 implements PostagemDAO{
-    private Connection conexao;
+    private final Connection CONEXAO;
     
     public PostagemDAOMariaDB10() {
-        conexao = Fabrica.obterConexao();
+        CONEXAO = Fabrica.obterConexao();
     }
 
     @Override
     public int inserir(Postagem postagem) {
         int resultado = 0;
         try{
-            PreparedStatement comandoSQL = conexao.prepareStatement("INSERT INTO postagem"
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("INSERT INTO postagem"
                     + "(fk_postagem_usuario_apelido, titulo_postagem, data_postagem, conteudo_postagem)"
                     + " VALUES(?, ?, ?, ?)");
             //comandoSQL.setString(1, "id_postagem");
@@ -42,11 +41,11 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
     }
     
     @Override
-    public Postagem encontrarPorIdentificador(Long id) {
+    public Postagem encontrarPorIdentificador(Integer id) {
         Postagem postagem = null;
         
         try{
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT u.apelido_usuario, p.id_postagem,"
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("SELECT u.apelido_usuario, p.id_postagem,"
                     + "p.titulo_postagem, p.data_postagem, p.conteudo_postagem "
                     + "FROM usuario u "
                     + "JOIN postagem p "
@@ -58,7 +57,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
             resultado.next();
             
             postagem = new Postagem();
-            postagem.setId(resultado.getLong(2));
+            postagem.setId(resultado.getInt(2));
             postagem.setAutor(resultado.getString(1));
             postagem.setTitulo(resultado.getString(3));
             postagem.setData(resultado.getTimestamp(4));
@@ -78,13 +77,13 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
         List<Postagem> listaPosts = new ArrayList();
         Postagem postagem = null;
         try{
-            PreparedStatement comandoSQL = conexao.prepareStatement("SELECT * FROM postagem ORDER BY data_postagem DESC LIMIT 5");
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("SELECT * FROM postagem ORDER BY data_postagem DESC LIMIT 5");
             
             ResultSet resultado = comandoSQL.executeQuery();
             while(resultado.next()){
                 postagem = new Postagem();
                 
-                postagem.setId(resultado.getLong(1));
+                postagem.setId(resultado.getInt(1));
                 postagem.setAutor(resultado.getString(2));
                 postagem.setTitulo(resultado.getString(3));
                 postagem.setData(resultado.getTimestamp(4));

@@ -1,10 +1,10 @@
-package modelo.dao.api;
+package modelo.servico.api;
 
 import java.util.List;
 import modelo.Comentario;
 
-public interface ComentarioDAO {
-    
+public interface ServicoComentario {
+
     public Comentario inserir(Comentario comentario);
     public List<Comentario> encontrarTodos(Integer idPostagem);
 }

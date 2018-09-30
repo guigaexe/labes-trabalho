@@ -1,12 +1,4 @@
-<%@page import="modelo.Postagem"%>
-<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%
-    Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-    //List<Postagem> listaPostagens = (List<Postagem>) request.getAttribute("listaPostagens");
-    String teste = (String) request.getAttribute("listaPostagens");
-%>
 
 <!DOCTYPE html>
 <html>
@@ -24,34 +16,5 @@
 		<title>Julia Roberts | Página Inicial</title>
 
 	</head>
-
-	<body>
-                <%@include file= "cabecalho.jsp" %>
-                <%@include file= "menu.jsp" %> 
-		<section class="section-corpo">
-			<article class="article-post">
-                            <h1 class="h1-titulo">a</h1>
-				<h2 class="h2-detalhes">b</h2>
-				<p>
-                                    c
-				</p>
-			</article>
-		</section>
-	
-		<footer>
-			ALGUNS DIREITOS RESERVADOS. 2018.
-		</footer>
-                
-                <% 
-                    if(usuario == null){
-                %>
-
-                    <%@include file= "modallogin.jsp" %> 
-                    
-                <%
-                    }
-                %>
-
-	</body>
 
 </html>

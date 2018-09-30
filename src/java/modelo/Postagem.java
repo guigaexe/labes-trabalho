@@ -3,8 +3,8 @@ package modelo;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class Postagem extends Identificador{
-    private Long id;
+public class Postagem{
+    private Integer id;
     private String autor;
     private String titulo;
     private Timestamp data;
@@ -13,7 +13,7 @@ public class Postagem extends Identificador{
     
     public Postagem(){};
 
-    public Postagem(Long id, String titulo, String autor, Timestamp data, String conteudo, List<Comentario> comentarios) {
+    public Postagem(Integer id, String titulo, String autor, Timestamp data, String conteudo, List<Comentario> comentarios) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -22,11 +22,11 @@ public class Postagem extends Identificador{
         this.comentarios = comentarios;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

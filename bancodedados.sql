@@ -25,15 +25,15 @@ CREATE TABLE postagem(
 CREATE TABLE comentario(
 	id_comentario INT UNSIGNED NOT NULL AUTO_INCREMENT,
     fk_comentario_postagem_id INT UNSIGNED NOT NULL,
-    fk_comentario_usuario_id INT UNSIGNED NOT NULL,
+    fk_comentario_usuario_apelido VARCHAR(255) NOT NULL,
     data_comentario DATE NOT NULL,
     conteudo_comentario VARCHAR(255) NOT NULL,
     PRIMARY KEY(id_comentario),
-    FOREIGN KEY(fk_comentario_postagem_id) REFERENCES postagem(id_postagem),
-    FOREIGN KEY(fk_comentario_usuario_id) REFERENCES usuario(id_usuario)
+    FOREIGN KEY(fk_comentario_usuario_apelido) REFERENCES postagem(id_postagem),
+    FOREIGN KEY(fk_comentario_usuario_id) REFERENCES usuario(apelido_usuario)
 );
 SELECT data_postagem FROM postagem;
-SELECT * FROM postagem ORDER BY data_postagem DESC;
+SELECT * FROM postagem ORDER BY data_postagem DESC LIMIT 5;
 INSERT INTO usuario VALUES(id_usuario, "Guilherme Eric", "Guiga", "Guilherme@uol.com.br", "123", 0);/*
 INSERT INTO usuario VALUES(2, "Geovane Santos", "Crota", "Geovane@bol.com.br", "123", 1);
 INSERT INTO usuario VALUES(3, "Leonardo Costa", "GrandeLepe", "Leonardo@outlook.com", "123", 1);
