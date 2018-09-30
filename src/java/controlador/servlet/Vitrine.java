@@ -15,9 +15,12 @@ public class Vitrine extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest requisicao, HttpServletResponse resposta) throws ServletException, IOException{
         Montador montador = new Montador();
-        Postagem postagem = montador.obterPostagemCompleta((Integer)requisicao.getAttribute("id"));
+        Integer idPostagem = Integer.valueOf(requisicao.getParameter("id"));
         
-        
+        Postagem postagem = montador.obterPostagemCompleta(idPostagem);
+
+        requisicao.setAttribute("postagem", postagem);
+        requisicao.getRequestDispatcher("postagem.jsp").forward(requisicao, resposta);         
         
     }
 }

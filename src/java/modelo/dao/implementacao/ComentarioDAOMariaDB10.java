@@ -29,8 +29,8 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO{
         
         try{
             PreparedStatement comandoSQL = CONEXAO.prepareStatement("SELECT "
-                    + "(id_comentario, fk_comentario_usuario_apelido, data_comentario, conteudo_comentario) FROM comentario WHERE"
-                    + "fk_comentario_postagem_id = ?");
+                    + "id_comentario, fk_comentario_usuario_apelido, data_comentario, "
+                    + "conteudo_comentario FROM comentario WHERE fk_comentario_postagem_id = ?");
             comandoSQL.setInt(1, idPostagem);
         
             ResultSet resultado = comandoSQL.executeQuery();
@@ -49,6 +49,7 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO{
             System.out.println(excecao);
         }
         return listaComentarios;
+
     }
     
 }

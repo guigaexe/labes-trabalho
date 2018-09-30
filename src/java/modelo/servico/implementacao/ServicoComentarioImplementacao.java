@@ -19,6 +19,5 @@ public class ServicoComentarioImplementacao implements ServicoComentario{
         List<Comentario> listaComentarios = comentariodao.encontrarTodos(idPostagem);
         
         return listaComentarios;
-    }
-
+    }    
 }

@@ -49,7 +49,7 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
                     + "p.titulo_postagem, p.data_postagem, p.conteudo_postagem "
                     + "FROM usuario u "
                     + "JOIN postagem p "
-                    + "ON u.id_usuario = p.fk_postagem_usuario_id "
+                    + "ON u.apelido_usuario = p.fk_postagem_usuario_apelido "
                     + "WHERE p.id_postagem = ?");
             comandoSQL.setString(1, id.toString());
             

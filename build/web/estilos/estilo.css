@@ -76,7 +76,7 @@ nav{
 	text-decoration: none;
 }
 
-.section-corpo{
+.section-corpo, .section-comentario{
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -132,6 +132,10 @@ nav{
 	margin-bottom: 15px;
 }
 
+.h1-titulo > a{
+    all: unset;
+}
+
 .h1-titulo:hover{
 	cursor: pointer;
 }
@@ -178,6 +182,11 @@ nav{
 	padding: 25px;
 	margin: 10px;
 	border-radius: 15px;
+}
+
+.section-comentario > h1{
+	font-size: 1.2em;
+	margin-bottom: 25px;
 }
 
 footer{
