@@ -9,8 +9,11 @@ import modelo.servico.api.ServicoComentario;
 public class ServicoComentarioImplementacao implements ServicoComentario{
 
     @Override
-    public Comentario inserir(Comentario comentario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int inserir(Comentario comentario, Integer idPostagem) {
+        ComentarioDAO comentariodao = new ComentarioDAOMariaDB10();
+        int resultado = comentariodao.inserir(comentario, idPostagem);
+        
+        return resultado;
     }
 
     @Override

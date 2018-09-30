@@ -96,7 +96,7 @@ nav{
 	width: 40%;
 	font-family: 'Oswald', sans-serif;
 	background-color: #4293C1;
-        text-decoration: none;
+    text-decoration: none;
 	padding: 25px;
 	margin: 10px;
 	border-radius: 15px;
@@ -116,7 +116,7 @@ nav{
 	all: unset;
 }
 
-.article-post, .section-painel{
+.article-post, .section-painel, .section-comentar{
 	background-color: #AAC6F5;
 	padding: 25px;
 	margin-bottom: 25px;
@@ -129,7 +129,7 @@ nav{
 	color: #F4D56C;
 	line-height: 1;
 	text-shadow: 2px 2px #000;
-	margin-bottom: 15px;
+	margin-bottom: 15px;    
 }
 
 .h1-titulo > a{
@@ -184,9 +184,38 @@ nav{
 	border-radius: 15px;
 }
 
+.article-comentario{
+	margin-bottom: 25px;
+}
+
 .section-comentario > h1{
 	font-size: 1.2em;
 	margin-bottom: 25px;
+}
+
+.form-comentar{
+	display: flex;
+	flex-direction: column;
+}
+
+.input-comentario{
+	width: 100%;
+	height: 5rem;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	margin-bottom: 10px;
+	border-radius: 15px;
+	resize: none;
+}
+
+.submit-comentario{
+	border: none;
+	width: 40%;
+	font-family: 'Oswald', sans-serif;
+	background-color: #4293C1;
+	align-self: center;
+	padding: 10px;
+	border-radius: 15px;
 }
 
 footer{

@@ -32,7 +32,6 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
             resultado = comandoSQL.executeUpdate();
             comandoSQL.close();
             
-            return resultado;
         }
         catch(Exception excecao){
             System.out.println(excecao);

@@ -5,6 +5,6 @@ import modelo.Comentario;
 
 public interface ComentarioDAO {
     
-    public Comentario inserir(Comentario comentario);
+    public int inserir(Comentario comentario, Integer idPostagem);
     public List<Comentario> encontrarTodos(Integer idPostagem);
 }

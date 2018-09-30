@@ -50,6 +50,9 @@
                         </p>
                     </article>
                 <% } %>
+                <% if(usuario != null){ %>
+                    <%@include file="comentar.jsp" %>
+                <% } %>
 		</section>                
 	
 		<footer>
@@ -60,7 +63,7 @@
                     if(usuario == null){
                 %>
 
-                    <%@include file= "modallogin.jsp" %> 
+                    <%@include file="modallogin.jsp" %> 
                     
                 <%
                     }

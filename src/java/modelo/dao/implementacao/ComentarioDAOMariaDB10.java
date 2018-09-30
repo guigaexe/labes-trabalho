@@ -18,8 +18,24 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO{
     }
 
     @Override
-    public Comentario inserir(Comentario comentario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int inserir(Comentario comentario, Integer idPostagem) {
+        int resultado = 0;
+        try{
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("INSERT INTO comentario"
+                    + "(fk_comentario_postagem_id, fk_comentario_usuario_apelido, data_comentario,"
+                    + "conteudo_comentario) VALUES(?, ?, ?, ?)");
+            comandoSQL.setInt(1, idPostagem);
+            comandoSQL.setString(2, comentario.getAutor());
+            comandoSQL.setTimestamp(3, comentario.getData());
+            comandoSQL.setString(4, comentario.getConteudo());
+            
+            resultado = comandoSQL.executeUpdate();
+            comandoSQL.close();
+        }
+        catch(Exception excecao){
+            System.out.println(excecao); 
+        }
+        return resultado;
     }
 
     @Override
@@ -30,7 +46,8 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO{
         try{
             PreparedStatement comandoSQL = CONEXAO.prepareStatement("SELECT "
                     + "id_comentario, fk_comentario_usuario_apelido, data_comentario, "
-                    + "conteudo_comentario FROM comentario WHERE fk_comentario_postagem_id = ?");
+                    + "conteudo_comentario FROM comentario WHERE fk_comentario_postagem_id = ? "
+                    + "ORDER BY data_comentario DESC");
             comandoSQL.setInt(1, idPostagem);
         
             ResultSet resultado = comandoSQL.executeQuery();
