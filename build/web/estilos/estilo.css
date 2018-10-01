@@ -102,17 +102,13 @@ nav{
 	border-radius: 15px;
 }
 
-.section-acao > a{
-    all: unset;
-}
-
-.section-acao:hover, .submit-postar:hover{
+.section-acao:hover, .submit-postar:hover, .section-acao-gerenciar:hover{
 	color: #F4D56C;
-        text-decoration: none;
+    text-decoration: none;
 	cursor: pointer;
 }
 
-.input-logout{
+.input-logout, .section-acao-gerenciar, .h1-titulo > a, .section-acao > a{
 	all: unset;
 }
 
@@ -130,10 +126,6 @@ nav{
 	line-height: 1;
 	text-shadow: 2px 2px #000;
 	margin-bottom: 15px;    
-}
-
-.h1-titulo > a{
-    all: unset;
 }
 
 .h1-titulo:hover{
@@ -227,6 +219,35 @@ footer{
 	left: 0;
 	padding: 1rem;
 	text-align: center;
+}
+
+.select-postagem{
+	width: 100%;
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	color: #4293C1;
+	background-color: #FDF9EC;
+	border-radius: 15px;
+}
+
+.section-gerenciar{
+	display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.section-acao-gerenciar{
+	width: 15vw;
+	font-family: 'Oswald', sans-serif;
+	background-color: #4293C1;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.section-acao-gerenciar:last-child{
+	margin-left: 15px;
 }
 
 .janela-modal{

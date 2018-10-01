@@ -38,7 +38,7 @@
 					EXCLUIR USUÁRIOS
 				</section>
 				<section class="section-acao">
-					EXCLUIR POSTAGENS
+                                    <a href="gerenciador">EXCLUIR POSTAGENS</a>
 				</section>
                                 
                                 <%

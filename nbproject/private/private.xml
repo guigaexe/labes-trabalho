@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/servico/implementacao/ServicoComentarioImplementacao.java</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/controlador/servlet/Vitrine.java</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/web/home.jsp</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/web/postagem.jsp</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/dao/implementacao/ComentarioDAOMariaDB10.java</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/servico/implementacao/Montador.java</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/web/estilos/estilo.css</file>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/dao/implementacao/PostagemDAOMariaDB10.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
