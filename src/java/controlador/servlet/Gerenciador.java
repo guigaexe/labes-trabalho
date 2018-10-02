@@ -16,7 +16,7 @@ public class Gerenciador extends HttpServlet{
     
     public void doGet(HttpServletRequest requisicao, HttpServletResponse resposta) throws ServletException, IOException{
         ServicoPostagem servicopostagem = new ServicoPostagemImplementacao();
-        List<Postagem> listaPostagens = servicopostagem.encontrarCincoPostagens();
+        List<Postagem> listaPostagens = servicopostagem.encontrarTudo();
         
         requisicao.setAttribute("gerenciarPostagens", listaPostagens);
         System.out.println(requisicao.getAttribute("gerenciarPostagens"));

@@ -18,14 +18,16 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
     
     @Override
     public int inserir(Usuario usuario) {
-        int resultado = 0;
+        int resultado = 0; 
         try{
-            PreparedStatement comandoSQL = CONEXAO.prepareStatement("INSERT INTO usuario VALUES(?, ?, ?, ?, ?)");
-            comandoSQL.setString(1, "id_usuario");
-            comandoSQL.setString(2, usuario.getNome());
-            comandoSQL.setString(3, usuario.getApelido());
-            comandoSQL.setString(4, usuario.getEmail());
-            comandoSQL.setString(5, usuario.getSenha());
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("INSERT INTO "
+                    + "usuario(nome_usuario, apelido_usuario, email_usuario, senha_usuario, privilegio_usuario)"
+                    + " VALUES(?, ?, ?, ?, ?)");
+            comandoSQL.setString(1, usuario.getNome());
+            comandoSQL.setString(2, usuario.getApelido());
+            comandoSQL.setString(3, usuario.getEmail());
+            comandoSQL.setString(4, usuario.getSenha());
+            comandoSQL.setInt(5, Privilegios.values()[1].ordinal());
             
             resultado = comandoSQL.executeUpdate();
             comandoSQL.close();
@@ -33,7 +35,7 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
             return resultado;
         }
         catch(Exception excecao){
-            
+            System.out.println(excecao);
         }
         return resultado;
     }

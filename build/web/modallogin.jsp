@@ -7,5 +7,7 @@
 
 			<input type="submit" name="submit-enviar" value="ENTRAR">
 		</form>
+                <br>
+                Ainda não tem uma conta? <a href="cadastrar.jsp" class="a-cadastro">Clique aqui.</a>
 	</div>
 </aside>

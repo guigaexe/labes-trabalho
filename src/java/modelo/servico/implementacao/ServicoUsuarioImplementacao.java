@@ -10,13 +10,16 @@ public class ServicoUsuarioImplementacao implements ServicoUsuario{
 
     @Override
     public int inserir(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        UsuarioDAO usuariodao = new UsuarioDAOMariaDB10();
+        int resultado = usuariodao.inserir(usuario);
+        
+        return resultado;
     }
 
     @Override
     public Usuario encontrarPorApelido(String apelido) {
-        UsuarioDAO usuarioDAO = new UsuarioDAOMariaDB10();
-        Usuario usuario = usuarioDAO.encontrarPorApelido(apelido);
+        UsuarioDAO usuariodao = new UsuarioDAOMariaDB10();
+        Usuario usuario = usuariodao.encontrarPorApelido(apelido);
         
         return usuario;
     }

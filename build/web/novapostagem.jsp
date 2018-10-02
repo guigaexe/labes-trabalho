@@ -27,9 +27,9 @@
 		<section class="section-corpo">
 			<form class="form-postagem" action="arauto" method="post" accept-charset="UTF-8">
 				TÍTULO DA POSTAGEM
-				<input type="text" class="input-titulo" name="campo-titulo" required>
+				<input type="text" class="input-titulo input-geral" name="campo-titulo" required>
 				CORPO DA POSTAGEM
-				<textarea class="input-postagem" name="campo-postagem" cols="1" required></textarea>
+				<textarea class="input-postagem input-geral" name="campo-postagem" cols="1" required></textarea>
 				<input type="submit" class="submit-postar" value="POSTAR">
 			</form>
 		</section>

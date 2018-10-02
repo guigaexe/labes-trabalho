@@ -25,19 +25,13 @@
                 <%@include file= "menu.jsp" %>
 		<section class="section-corpo">
 			<section class="section-painel">
-				<form action="" method="post">
-					<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-					<section class="section-gerenciar">
-						<input type="submit" class="section-acao-gerenciar" value="EXCLUIR">
-						</input>
-						<input type="submit" class="section-acao-gerenciar" value="EDITAR">
-						</input>
-					</section>
+				<form class="form-login" name="form-cadastrar" action="autenticador" method="post">
+					NOME: <input type="text" name="campo-nome" required>
+					USUÁRIO: <input type="text" name="campo-usuario" required>
+					EMAIL: <input type="email" name="campo-email" required>
+					SENHA: <input type="password" name="campo-senha" required><br />
+
+					<input type="submit" name="submit-enviar" value="ENTRAR">
 				</form>
 		</section>
 

@@ -31,5 +31,13 @@ public class ServicoPostagemImplementacao implements ServicoPostagem{
         List<Postagem> listaPostagens = postagemdao.encontrarCincoPostagens();
         
         return listaPostagens;
-    }     
+    }
+    
+    @Override
+    public List<Postagem> encontrarTudo(){
+        PostagemDAO postagemdao = new PostagemDAOMariaDB10();
+        List<Postagem> listaPostagens = postagemdao.encontrarTudo();
+        
+        return listaPostagens;
+    }
 }

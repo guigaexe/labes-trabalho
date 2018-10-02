@@ -32,15 +32,16 @@ CREATE TABLE comentario(
     FOREIGN KEY(fk_comentario_postagem_id) REFERENCES postagem(id_postagem),
     FOREIGN KEY(fk_comentario_usuario_apelido) REFERENCES usuario(apelido_usuario)
 );
-INSERT INTO comentario VALUES(2, 1, "Guiga", "2005-11-12", "funcina :D");
+/*INSERT INTO comentario VALUES(2, 1, "Guiga", "2005-11-12", "funcina :D");
 INSERT INTO comentario(fk_comentario_postagem_id, fk_comentario_usuario_apelido, data_comentario, conteudo_comentario) VALUES(?, ?, ?, ?)
 SELECT id_comentario, fk_comentario_usuario_apelido, data_comentario, conteudo_comentario
 FROM comentario
 WHERE fk_comentario_postagem_id = 1
 ORDER BY data_comentario DESC;
 SELECT data_postagem FROM postagem;
-SELECT * FROM postagem ORDER BY data_postagem DESC LIMIT 5;
-INSERT INTO usuario VALUES(id_usuario, "Guilherme Eric", "Guiga", "Guilherme@uol.com.br", "123", 0);/*
+SELECT * FROM postagem ORDER BY data_postagem DESC LIMIT 5;*/
+INSERT INTO usuario VALUES(id_usuario, "Guilherme Eric", "Guiga", "Guilherme@uol.com.br", "123", 0);
+INSERT INTO postagem VALUES(id_postagem, "Guiga", "Esta postagem vem do banco de dados", "2018-02-02", "Não acho que quem ganhar ou quem perder, nem quem ganhar nem perder, vai ganhar ou perder. Vai todo mundo perder.");/*
 INSERT INTO usuario VALUES(2, "Geovane Santos", "Crota", "Geovane@bol.com.br", "123", 1);
 INSERT INTO usuario VALUES(3, "Leonardo Costa", "GrandeLepe", "Leonardo@outlook.com", "123", 1);
 INSERT INTO postagem VALUES(id_postagem, "Guiga", "Testes no banco de dados: Como fazer?", "2008-11-11", "Lorem ipsum.");/*

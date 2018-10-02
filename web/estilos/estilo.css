@@ -102,13 +102,13 @@ nav{
 	border-radius: 15px;
 }
 
-.section-acao:hover, .submit-postar:hover, .section-acao-gerenciar:hover{
-	color: #F4D56C;
+.section-acao:hover, .submit-postar:hover, .section-acao-gerenciar:hover, .submit-comentario:hover, .a-cadastro:hover{
+    color: #F4D56C;
     text-decoration: none;
-	cursor: pointer;
+    cursor: pointer;
 }
 
-.input-logout, .section-acao-gerenciar, .h1-titulo > a, .section-acao > a{
+.input-logout, .section-acao-gerenciar, .h1-titulo > a, .section-acao > a, .a-cadastro{
 	all: unset;
 }
 
@@ -250,6 +250,12 @@ footer{
 	margin-left: 15px;
 }
 
+.input-geral:focus{
+    border-color: #4293C1;
+    border-width: 2.5px;
+    outline: 0 none;
+}
+
 .janela-modal{
 	position: fixed;
 	background: rgba(0,0,0,0.8);
@@ -277,18 +283,25 @@ footer{
 	padding: 5px 20px 13px 20px;
 	border-radius: 15px;
 	background-color: #AAC6F5;
+        
+}
+
+.a-cadastro{
+    color: #4293C1;
+    font-weight: bold;
 }
 
 .form-login{
 	font-family: 'Oswald', sans-serif;
 	display: flex;
 	flex-direction: column;
+	text-align: left;
 }
 
-.form-login input[type=text], .form-login input[type=password]{
-	padding: 10px;
-	background-color: #FDF9EC;
-	border: 2px solid #4293C1;
+.form-login input[type=text], .form-login input[type=password], .form-login input[type=email]{
+    padding: 10px;
+    background-color: #FDF9EC;
+    border: 2px solid #4293C1;
     border-radius: 15px;
     outline: none;
     width: 100%;

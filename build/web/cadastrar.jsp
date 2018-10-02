@@ -1,10 +1,10 @@
+<%@page import="modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 %>
 
-<!DOCTYPE html>
 <html>
 
 	<head>
@@ -17,23 +17,24 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-		<title>Julia Roberts | Nova postagem</title>
-
+		<title>Julia Roberts | Painel de controle</title>
 	</head>
 
-	<body>
+	<body>           
                 <%@include file= "cabecalho.jsp" %>
-                <%@include file= "menu.jsp" %> 
+                <%@include file= "menu.jsp" %>
 		<section class="section-corpo">
-			<form class="form-postagem" action="arauto" method="post" accept-charset="UTF-8">
-				TÍTULO DA POSTAGEM
-				<input type="text" class="input-titulo input-geral" name="campo-titulo" required>
-				CORPO DA POSTAGEM
-				<textarea class="input-postagem input-geral" name="campo-postagem" cols="1" required></textarea>
-				<input type="submit" class="submit-postar" value="POSTAR">
-			</form>
+			<section class="section-painel">
+				<form class="form-login" name="form-cadastrar" action="registro" method="post">
+					NOME: <input type="text" name="campo-nome" required>
+					USUÁRIO: <input type="text" name="campo-usuario" required>
+					EMAIL: <input type="email" name="campo-email" required>
+					SENHA: <input type="password" name="campo-senha" required><br />
+
+					<input type="submit" name="submit-enviar" value="ENTRAR">
+				</form>
 		</section>
-	
+
 		<footer>
 			ALGUNS DIREITOS RESERVADOS. 2018.
 		</footer>

@@ -99,5 +99,33 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
         }
         return listaPosts;
     }
+    
+    public List<Postagem> encontrarTudo(){
+        List<Postagem> listaPosts = new ArrayList();
+        Postagem postagem = null;
+        try{
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("SELECT * FROM postagem ORDER BY data_postagem DESC");
+            
+            ResultSet resultado = comandoSQL.executeQuery();
+            while(resultado.next()){
+                postagem = new Postagem();
+                
+                postagem.setId(resultado.getInt(1));
+                postagem.setAutor(resultado.getString(2));
+                postagem.setTitulo(resultado.getString(3));
+                postagem.setData(resultado.getTimestamp(4));
+                postagem.setConteudo(resultado.getString(5));               
+                
+                listaPosts.add(postagem);
+            }
+            
+            comandoSQL.close();
+            resultado.close();  
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return listaPosts;
+    }
 
 }
