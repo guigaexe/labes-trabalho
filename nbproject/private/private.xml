@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/web/gerenciar.jsp</file>
+            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/modelo/dao/implementacao/UsuarioDAOMariaDB10.java</file>
+            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/src/java/controlador/servlet/Registro.java</file>
+            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/web/estilos/estilo.css</file>
+            <file>file:/home/guigaexe/NetBeansProjects/labes-trabalho/web/modallogin.jsp</file>
         </group>
     </open-files>
 </project-private>

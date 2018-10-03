@@ -23,4 +23,12 @@ public class ServicoComentarioImplementacao implements ServicoComentario{
         
         return listaComentarios;
     }    
+
+    @Override
+    public int excluirPorIdentificador(Integer idComentario) {
+        ComentarioDAO comentariodao = new ComentarioDAOMariaDB10();
+        int resultado = comentariodao.excluirPorIdentificador(idComentario);
+        
+        return resultado;
+    }
 }

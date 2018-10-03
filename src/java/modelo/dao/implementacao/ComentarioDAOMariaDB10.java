@@ -68,5 +68,22 @@ public class ComentarioDAOMariaDB10 implements ComentarioDAO{
         return listaComentarios;
 
     }
+
+    @Override
+    public int excluirPorIdentificador(Integer idComentario) {
+        int resultado = 0;
+        try{
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("DELETE FROM comentario "
+                    + "WHERE id_comentario = ?");
+            comandoSQL.setInt(1, idComentario);
+            
+            resultado = comandoSQL.executeUpdate();
+            comandoSQL.close();
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return resultado;
+    }
     
 }

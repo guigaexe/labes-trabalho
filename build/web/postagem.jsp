@@ -42,13 +42,18 @@
 		<section class="section-comentario">
                     <h1>COMENTÁRIOS</h1>
                 <% for(Comentario comentario: postagem.getComentarios()){ %>
-                    <article class="article-comentario">
-                        <h2>por <%= comentario.getAutor() %></h2>
-                        <h3>em <%= comentario.getData() %></h3>
-                        <p>
-                            <%= comentario.getConteudo() %>
-                        </p>
-                    </article>
+                        <article class="article-comentario">
+                            <h2>por <%= comentario.getAutor() %></h2>
+                            <h3>em <%= comentario.getData() %></h3>
+                            <p>
+                                <%= comentario.getConteudo() %>
+                            </p>
+                            <% if(usuario != null && usuario.getPrivilegio().equals("ADMINISTRADOR")){ %>
+                                <form class="form-apagar-comentario" action="apagador" method="post">
+                                    <button type="submit" name="button-apagar" value="<%= comentario.getId() %>">EXCLUIR</button>
+                                </form>
+                            <% } %>
+                        </article>
                 <% } %>
                 <% if(usuario != null){ %>
                     <%@include file="comentar.jsp" %>
