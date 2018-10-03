@@ -9,4 +9,5 @@ public interface ServicoPostagem{
     public Postagem encontrarPorIdentificador(Integer id);
     public List<Postagem> encontrarCincoPostagens();
     public List<Postagem> encontrarTudo();
+    public int excluir(Integer idPostagem);
 }

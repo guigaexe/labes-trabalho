@@ -8,8 +8,8 @@ import javax.servlet.http.HttpSession;
 import modelo.servico.api.ServicoComentario;
 import modelo.servico.implementacao.ServicoComentarioImplementacao;
 
-@WebServlet("/apagador")
-public class Apagador extends HttpServlet{
+@WebServlet("/apagadorcomentario")
+public class ApagadorComentario extends HttpServlet{
     
     public void doPost(HttpServletRequest requisicao, HttpServletResponse resposta){
         HttpSession sessao = requisicao.getSession();

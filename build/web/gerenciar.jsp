@@ -5,7 +5,9 @@
 
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-    List<Postagem> listaPostagens = (List<Postagem>) request.getAttribute("gerenciarPostagens"); 
+    List<Postagem> listaPostagens = (List<Postagem>) request.getAttribute("gerenciarPostagens");
+    List<Usuario> listaUsuarios = (List<Usuario>) request.getAttribute("gerenciarUsuarios");
+    Integer codigoOperacao = (Integer) request.getAttribute("codigoOperacao");
 %>
 
 <html>
@@ -28,16 +30,30 @@
                 <%@include file= "menu.jsp" %>
 		<section class="section-corpo">
                     <section class="section-painel">
-			<form action="" method="post">
-                            <select class="select-postagem">
-                                <% for(Postagem postagem : listaPostagens){ %>
-                                <option value="<%= postagem.getId() %>"> <%= postagem.getTitulo() %> </option>
-                                <% } %>
+			<form action="apagadorpostagemusuario" method="post">
+                            <select class="select-postagem" name="select-gerenciar">
+                                <% if(listaUsuarios != null && codigoOperacao == 1){
+                                        for(Usuario usuariof : listaUsuarios){                                            
+                                %>
+                                            <option value="<%= usuariof.getId() %>"> <%= usuariof.getApelido() %> </option>
+                                <%
+                                        }
+                                    }
+                                    else if(listaPostagens != null && codigoOperacao == 2){
+                                        for(Postagem postagem : listaPostagens){
+                                %>
+                                            <option value="<%= postagem.getId() %>"> <%= postagem.getTitulo() %> </option>
+                                <%
+                                        }
+                                    }
+                                %>
                             </select>
                             <section class="section-gerenciar">
                                 <input type="submit" class="section-acao-gerenciar" value="EXCLUIR">
                                 </input>
-                                <input type="submit" class="section-acao-gerenciar" value="EDITAR">
+                                <% if(codigoOperacao == 2){ %>
+                                    <input type="submit" class="section-acao-gerenciar" value="EDITAR">
+                                <% } %>
                                 </input>
                             </section>
 			</form>

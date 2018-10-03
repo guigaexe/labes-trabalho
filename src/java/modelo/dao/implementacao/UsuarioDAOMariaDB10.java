@@ -3,6 +3,7 @@ package modelo.dao.implementacao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Privilegios;
 import modelo.Usuario;
@@ -70,7 +71,44 @@ public class UsuarioDAOMariaDB10 implements UsuarioDAO{
 
     @Override
     public List<Usuario> encontrarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Usuario> listaUsuarios = new ArrayList();
+        Usuario usuario = null;
+        try{
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("SELECT id_usuario, apelido_usuario FROM usuario");
+            
+            ResultSet resultado = comandoSQL.executeQuery();
+            while(resultado.next()){
+                usuario = new Usuario();
+                
+                usuario.setId(resultado.getInt(1));                
+                usuario.setApelido(resultado.getString(2)); 
+                listaUsuarios.add(usuario);
+            }
+            
+            comandoSQL.close();
+            resultado.close();  
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return listaUsuarios; 
+    }
+
+    @Override
+    public int excluir(Integer idUsuario) {
+        int resultado = 0;
+        try{
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("DELETE FROM usuario "
+                    + "WHERE id_usuario = ?");
+            comandoSQL.setInt(1, idUsuario);
+            
+            resultado = comandoSQL.executeUpdate();
+            comandoSQL.close();
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return resultado;
     }
 
 }

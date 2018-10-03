@@ -128,4 +128,21 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
         return listaPosts;
     }
 
+    @Override
+    public int excluir(Integer idPostagem) {
+        int resultado = 0;
+        try{
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("DELETE FROM postagem "
+                    + "WHERE id_postagem = ?");
+            comandoSQL.setInt(1, idPostagem);
+            
+            resultado = comandoSQL.executeUpdate();
+            comandoSQL.close();
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return resultado;
+    }
+
 }

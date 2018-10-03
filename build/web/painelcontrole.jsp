@@ -35,10 +35,10 @@
                                 %>
                                 
 				<section class="section-acao">
-					EXCLUIR USUÁRIOS
+					<a href="gerenciador?codigo=1">EXCLUIR USUÁRIOS</a>
 				</section>
 				<section class="section-acao">
-                                    <a href="gerenciador">EXCLUIR POSTAGENS</a>
+                                    <a href="gerenciador?codigo=2">EXCLUIR POSTAGENS</a>
 				</section>
                                 
                                 <%

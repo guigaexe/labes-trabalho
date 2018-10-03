@@ -40,4 +40,12 @@ public class ServicoPostagemImplementacao implements ServicoPostagem{
         
         return listaPostagens;
     }
+
+    @Override
+    public int excluir(Integer idPostagem) {
+        PostagemDAO postagemdao = new PostagemDAOMariaDB10();
+        int resultado = postagemdao.excluir(idPostagem);
+        
+        return resultado;
+    }
 }
