@@ -102,7 +102,7 @@ nav{
 	border-radius: 15px;
 }
 
-.section-acao:hover, .submit-postar:hover, .section-acao-gerenciar:hover, .submit-comentario:hover, .a-cadastro:hover{
+.section-acao:hover, .submit-postar:hover, .section-acao-gerenciar:hover, .submit-comentario:hover, .a-cadastro:hover, .button-apagar:hover{
     color: #F4D56C;
     text-decoration: none;
     cursor: pointer;
@@ -208,6 +208,16 @@ nav{
 	align-self: center;
 	padding: 10px;
 	border-radius: 15px;
+}
+
+.button-apagar{
+	border: none;
+	width: 5%;
+	font-family: 'Oswald', sans-serif;
+	background-color: #4293C1;
+	align-self: center;
+	padding: 5px;
+	border-radius: 15px;    
 }
 
 footer{

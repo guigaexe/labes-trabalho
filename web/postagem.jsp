@@ -50,7 +50,7 @@
                             </p>
                             <% if(usuario != null && usuario.getPrivilegio().equals("ADMINISTRADOR")){ %>
                                 <form class="form-apagar-comentario" action="apagador" method="post">
-                                    <button type="submit" name="button-apagar" value="<%= comentario.getId() %>">EXCLUIR</button>
+                                    <button class="button-apagar" type="submit" name="button-apagar" value="<%= comentario.getId() %>">EXCLUIR</button>
                                 </form>
                             <% } %>
                         </article>
