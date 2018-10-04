@@ -1,4 +1,4 @@
-package modelo.servico.implementacao;
+    package modelo.servico.implementacao;
 
 import modelo.Postagem;
 import modelo.Usuario;
