@@ -49,10 +49,10 @@
                                 %>
                             </select>
                             <section class="section-gerenciar">
-                                <input type="submit" class="section-acao-gerenciar" value="EXCLUIR">
+                                <input type="submit" name="input-gerenciar" class="section-acao-gerenciar" value="EXCLUIR">
                                 </input>
                                 <% if(codigoOperacao == 2){ %>
-                                    <input type="submit" class="section-acao-gerenciar" value="EDITAR">
+                                    <input type="submit" name="input-gerenciar" class="section-acao-gerenciar" value="EDITAR">
                                 <% } %>
                                 </input>
                             </section>
