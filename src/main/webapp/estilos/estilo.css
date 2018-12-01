@@ -26,11 +26,19 @@ header{
 	flex-direction: column;
 }
 
+.generico{
+	background-image: url('../imagens/cabecalho2.jpg');
+}
+
 header h1{
 	font-family: 'Dancing Script', cursive;
 	font-size: 3em;
 	color: #F4D56C;
 	text-shadow: 2px 2px #000;
+}
+
+header h1:hover{
+	cursor: pointer;
 }
 
 header h2{

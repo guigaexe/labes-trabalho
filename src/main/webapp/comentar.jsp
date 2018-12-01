@@ -1,3 +1,7 @@
+<%
+    Boolean ofensivo = (Boolean) session.getAttribute("ofensivo");
+%>
+
 <section class="section-comentar">
 	<form class="form-comentar" action="comentador" method="post">
 		<textarea class="input-comentario" name="campo-comentario" required></textarea>
