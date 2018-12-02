@@ -150,6 +150,12 @@ nav{
 	padding: 5px;
 }
 
+@media screen and (max-width: 600px){
+	.article-post > p{
+    	display: none;
+  	}
+}
+
 .form-postagem{
 	font-family: 'Oswald', sans-serif;
 	background-color: #AAC6F5;
