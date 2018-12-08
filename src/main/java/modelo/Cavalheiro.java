@@ -14,10 +14,10 @@ public class Cavalheiro {
         
         System.out.println(file);
         BufferedReader br = new BufferedReader(new FileReader(file));
-        String line = null;
-        while ((line = br.readLine()) != null){  
+        String linha = null;
+        while ((linha = br.readLine()) != null){  
             System.out.println("entrou no while");
-            String comparada = line.toLowerCase();
+            String comparada = linha.toLowerCase();
             System.out.println(comparada);
             if(comentario.toLowerCase().contains(comparada)){
                 return false;

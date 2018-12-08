@@ -1,3 +1,8 @@
+@font-face{
+	font-family: 'Dancing Script';
+    	src: url(../fonts/ds.ttf);
+}
+
 *{
 	margin: 0;
 	padding: 0;
@@ -31,7 +36,7 @@ header{
 }
 
 header h1{
-	font-family: 'Dancing Script', cursive;
+	font-family: 'Dancing Script';
 	font-size: 3em;
 	color: #F4D56C;
 	text-shadow: 2px 2px #000;
