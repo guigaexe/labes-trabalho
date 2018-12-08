@@ -1,7 +1,9 @@
+    <%@page import="modelo.Postagem"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+    Postagem postagem = (Postagem) request.getAttribute("postagemAlvo");
 %>
 
 <!DOCTYPE html>
@@ -28,10 +30,26 @@
 		<section class="section-corpo">
 			<form class="form-postagem" action="arauto" method="post" accept-charset="UTF-8">
 				TÍTULO DA POSTAGEM
-				<input type="text" class="input-titulo input-geral" name="campo-titulo" required>
+                                <% if(postagem != null){ %>
+                                    <input type="text" class="input-titulo input-geral" name="campo-titulo" value="<%= postagem.getTitulo() %>" required>
+                                    <input type="hidden" name="campo-id" value="<%= postagem.getId() %>">
+                                <% }
+                                   else{ %>
+                                    <input type="text" class="input-titulo input-geral" name="campo-titulo" required>
+                                <% } %>
 				CORPO DA POSTAGEM
-				<textarea class="input-postagem input-geral" name="campo-postagem" cols="1" required></textarea>
-				<input type="submit" class="submit-postar" value="POSTAR">
+                                <% if(postagem != null){ %>
+                                    <textarea class="input-postagem input-geral" name="campo-postagem" cols="1" required><%= postagem.getConteudo() %></textarea>
+                                <% }
+                                   else{ %>    
+                                    <textarea class="input-postagem input-geral" name="campo-postagem" cols="1" required></textarea>
+                                <% } %>    
+                                <% if(postagem == null){ %>
+                                    <input type="submit" name="submit-postareditar" class="submit-postar" value="POSTAR">
+                                <% } %>
+                                <% if(postagem != null){ %>
+                                    <input type="submit" name="submit-postareditar" class="submit-postar" value="EDITAR">
+                                <% } %>
 			</form>
 		</section>
 	

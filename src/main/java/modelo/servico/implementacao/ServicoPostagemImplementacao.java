@@ -48,4 +48,12 @@ public class ServicoPostagemImplementacao implements ServicoPostagem{
         
         return resultado;
     }
+
+    @Override
+    public int alterar(Integer idPostagem, String titulo, String conteudo){
+        PostagemDAO postagemdao = new PostagemDAOMariaDB10();
+        int resultado = postagemdao.alterar(idPostagem, titulo, conteudo);
+        
+        return resultado;
+    }
 }

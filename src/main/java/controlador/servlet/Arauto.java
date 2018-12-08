@@ -20,34 +20,54 @@ public class Arauto extends HttpServlet{
     public void doPost(HttpServletRequest requisicao, HttpServletResponse resposta){
         HttpSession sessao = requisicao.getSession();
         Usuario usuario = (Usuario) sessao.getAttribute("usuarioLogado");
-        Postagem postagem = new Postagem();
-        ServicoPostagem servicopostagem = new ServicoPostagemImplementacao();
+        String editarPostar = (String) requisicao.getParameter("submit-postareditar");
         
-        String autor = usuario.getApelido();
-        String titulo = requisicao.getParameter("campo-titulo");
-        Timestamp data = new Timestamp(System.currentTimeMillis());
-        String conteudo = requisicao.getParameter("campo-postagem");
+        if(editarPostar.equals("POSTAR")){
+            Postagem postagem = new Postagem();
+            ServicoPostagem servicopostagem = new ServicoPostagemImplementacao();
         
-        postagem.setAutor(autor);
-        postagem.setTitulo(titulo);
-        postagem.setData(data);
-        postagem.setConteudo(conteudo);
+            String autor = usuario.getApelido();
+            String titulo = requisicao.getParameter("campo-titulo");
+            Timestamp data = new Timestamp(System.currentTimeMillis());
+            String conteudo = requisicao.getParameter("campo-postagem");
         
-        System.out.println("Autor: " + autor + "\n"
-        + "Titulo: " + titulo + "\n"
-        + "Data: " + data + "\n"
-        + "Conteudo: " + conteudo + "\n");
+            postagem.setAutor(autor);
+            postagem.setTitulo(titulo);
+            postagem.setData(data);
+            postagem.setConteudo(conteudo);
         
-        int resultado = servicopostagem.inserir(postagem);
+            System.out.println("Autor: " + autor + "\n"
+            + "Titulo: " + titulo + "\n"
+            + "Data: " + data + "\n"
+            + "Conteudo: " + conteudo + "\n");
         
-        if(resultado == 1){
-            try{
-                resposta.sendRedirect(requisicao.getContextPath() + "/index.jsp");;
-            }
-            catch(Exception excecao){
-                System.out.println(excecao);
+            int resultado = servicopostagem.inserir(postagem);
+        
+            if(resultado == 1){
+                try{
+                    resposta.sendRedirect(requisicao.getContextPath() + "/index.jsp");;
+                }
+                catch(Exception excecao){
+                    System.out.println(excecao);
+                }
             }
         }
-        
+        else if(editarPostar.equals("EDITAR")){
+            Integer id = Integer.valueOf(requisicao.getParameter("campo-id"));
+            String titulo = requisicao.getParameter("campo-titulo");
+            String conteudo = requisicao.getParameter("campo-postagem");
+            System.out.println("postagem:");
+            ServicoPostagem servicopostagem = new ServicoPostagemImplementacao();
+            int resultado = servicopostagem.alterar(id, titulo, conteudo);
+            
+            if(resultado == 1){
+                try{
+                    resposta.sendRedirect(requisicao.getContextPath() + "/index.jsp");;
+                }
+                catch(Exception excecao){
+                    System.out.println(excecao);
+                }
+            }
+        }
     }
 }

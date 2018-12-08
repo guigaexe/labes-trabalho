@@ -144,5 +144,25 @@ public class PostagemDAOMariaDB10 implements PostagemDAO{
         }
         return resultado;
     }
+    
+    @Override
+    public int alterar(Integer idPostagem, String titulo, String conteudo){
+        int resultado = 0;
+        try{
+            PreparedStatement comandoSQL = CONEXAO.prepareStatement("UPDATE postagem "
+                    + "SET titulo_postagem = ?, conteudo_postagem = ?"
+                    + "WHERE id_postagem = ?");
+            comandoSQL.setString(1, titulo);
+            comandoSQL.setString(2, conteudo);
+            comandoSQL.setInt(3, idPostagem);
+            
+            resultado = comandoSQL.executeUpdate();
+            comandoSQL.close();
+        }
+        catch(Exception excecao){
+            System.out.println(excecao);
+        }
+        return resultado;
+    }
 
 }

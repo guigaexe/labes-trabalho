@@ -10,4 +10,5 @@ public interface ServicoPostagem{
     public List<Postagem> encontrarCincoPostagens();
     public List<Postagem> encontrarTudo();
     public int excluir(Integer idPostagem);
+    public int alterar(Integer idPostagem, String titulo, String conteudo);
 }
