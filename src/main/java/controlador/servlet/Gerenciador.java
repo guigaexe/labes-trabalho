@@ -21,6 +21,7 @@ public class Gerenciador extends HttpServlet{
     public void doGet(HttpServletRequest requisicao, HttpServletResponse resposta) throws ServletException, IOException{
         Integer codigoOperacao = Integer.valueOf(requisicao.getParameter("codigo"));
         HttpSession sessao = requisicao.getSession();
+        sessao.setAttribute("falha", false);
         
         if(codigoOperacao == 2){
             ServicoPostagem servicopostagem = new ServicoPostagemImplementacao();

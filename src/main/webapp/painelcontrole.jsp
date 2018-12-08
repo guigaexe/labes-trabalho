@@ -3,6 +3,7 @@
 
 <%
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+    Boolean falha = (Boolean) session.getAttribute("falha");
 %>
 
 <html>
@@ -27,6 +28,9 @@
 		<section class="section-corpo">
 			<section class="section-painel">
                             <h1>Bem vindo, <%= usuario.getApelido() %>!</h1>
+                            <% if(falha != null && falha == true){ %>
+                                <h2>NAO EH POSSIVEL EXCLUIR POSTAGENS COMENTADAS!</h2>
+                            <% } %>
 				<section class="section-acao">
                                     <a href="novapostagem.jsp">NOVA POSTAGEM</a>
 				</section>

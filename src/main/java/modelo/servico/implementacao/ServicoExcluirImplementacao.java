@@ -16,8 +16,18 @@ public class ServicoExcluirImplementacao implements ServicoExcluir{
             resultado = servicousuario.excluir(idObjeto);
         }
         else if(idOperacao == 2){
+            Montador montador = new Montador();
             ServicoPostagem servicopostagem = new ServicoPostagemImplementacao();
-            resultado = servicopostagem.excluir(idObjeto);
+            Postagem postagem = montador.obterPostagemCompleta(idObjeto);
+            System.out.println(postagem.getTitulo());
+            if(postagem.getComentarios().isEmpty()){
+                System.out.println("nao tem comentarios, pode excluir");
+                resultado = servicopostagem.excluir(postagem.getId());
+            }
+            else{
+                System.out.println("retornou 99");
+                resultado = 99;
+            }
         }
         return resultado;
     }

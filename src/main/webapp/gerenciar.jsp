@@ -7,7 +7,7 @@
     Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
     List<Postagem> listaPostagens = (List<Postagem>) request.getAttribute("gerenciarPostagens");
     List<Usuario> listaUsuarios = (List<Usuario>) request.getAttribute("gerenciarUsuarios");
-    Integer codigoOperacao = (Integer) request.getAttribute("codigoOperacao");
+    Integer codigoOperacao = (Integer) request.getAttribute("codigoOperacao");  
 %>
 
 <html>
@@ -29,7 +29,7 @@
 	<body>           
                 <%@include file= "cabecalho.jsp" %>
                 <%@include file= "menu.jsp" %>
-		<section class="section-corpo">
+		<section class="section-corpo">                     
                     <section class="section-painel">
 			<form action="apagadorpostagemusuario" method="post">
                             <select class="select-postagem" name="select-gerenciar">
